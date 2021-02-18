@@ -11,6 +11,7 @@ import {
 import { Transactions } from "./Transactions";
 import { Block } from "./Block";
 import { useBlockTable } from "./hooks/useBlockTable";
+import { IResult, ITransaction } from "../utils/types";
 
 export const BlockTable = () => {
   const {
@@ -34,7 +35,16 @@ export const BlockTable = () => {
 
   if (error) return <div>{`An error has occurred: ' ${error.message}`}</div>;
 
-  const { result } = data?.message;
+  const { result }: { result: IResult } = data?.message;
+
+  const transactions: ITransaction[] = result?.transactions || [];
+  const blockNumber: string | number = result
+    ? parseInt(result.number, 16)
+    : "Block doesn't exist";
+  const blockHash: string = result ? result.hash : "Block doesn't exist";
+  const inputPlaceholder: string = `Block number: ${
+    result && parseInt(result.number, 16)
+  }`;
 
   return (
     <Container fluid>
@@ -47,9 +57,7 @@ export const BlockTable = () => {
             <div className="blockInputWrapper">
               <InputGroup className="mb-3" hasValidation>
                 <FormControl
-                  placeholder={`Block number: ${
-                    result ? parseInt(result.number, 16) : "Block exsist"
-                  }`}
+                  placeholder={inputPlaceholder}
                   aria-label="Block number"
                   value={inputValue}
                   onChange={changeBlockNumber}
@@ -65,23 +73,12 @@ export const BlockTable = () => {
           </div>
         </Col>
 
-        <Block
-          title="Block number"
-          value={result ? parseInt(result.number, 16) : "Block doesn't exsist"}
-          xs={12}
-          md={3}
-        />
+        <Block title="Block number" value={blockNumber} xs={12} md={3} />
 
-        <Block
-          title="Hash"
-          value={result ? result.hash : "Block doesn't exsist"}
-          isHash
-          xs={12}
-          md={6}
-        />
+        <Block title="Hash" value={blockHash} isHash xs={12} md={6} />
 
         <Col xs={12} md={12}>
-          <Transactions transactions={result ? result.transactions : []} />
+          <Transactions transactions={transactions} />
         </Col>
       </Row>
     </Container>

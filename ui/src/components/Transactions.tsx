@@ -1,9 +1,14 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
+import { ITransaction } from "../utils/types";
 
-export const Transactions = ({ transactions }: any) => {
+export const Transactions = ({
+  transactions,
+}: {
+  transactions: ITransaction[];
+}) => {
   return (
-    <Table striped bordered hover responsive >
+    <Table striped bordered hover responsive>
       <thead>
         <tr>
           <th>From</th>
@@ -12,7 +17,7 @@ export const Transactions = ({ transactions }: any) => {
         </tr>
       </thead>
       <tbody>
-        {transactions.map((transaction: any) => {
+        {transactions.map((transaction: ITransaction) => {
           return (
             <tr key={transaction.hash}>
               <td>{transaction.from}</td>
