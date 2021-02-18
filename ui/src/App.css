@@ -1,0 +1,63 @@
+p,
+span {
+  color: #37352f;
+}
+.App {
+  background-color: #f7f6f2;
+}
+
+.inputLatestWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 110px;
+  margin: 32px 0;
+}
+
+.blockInputWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  flex-direction: column;
+  height: 60px;
+}
+
+.blockKeyValueWrapper {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
+  flex-direction: column;
+  height: 110px;
+  margin: 32px 0;
+}
+
+.wrapperValue {
+  font-weight: 300;
+  font-size: 32px;
+}
+
+.hashValue {
+  font-size: 18px;
+}
+.wrapperTitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+}
+.spinner {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+}
+.loader {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
