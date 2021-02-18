@@ -32,7 +32,7 @@ export const BlockTable = () => {
     );
   }
 
-  if (error) return <div>'An error has occurred: ' + error.message</div>;
+  if (error) return <div>{`An error has occurred: ' ${error.message}`}</div>;
 
   const { result } = data?.message;
 

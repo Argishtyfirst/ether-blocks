@@ -21,8 +21,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "go-build": "go build server.go",
-    "start": "server.go && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
