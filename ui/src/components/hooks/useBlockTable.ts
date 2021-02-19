@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import {QueryObserverIdleResult, useQuery} from "react-query";
+import { QueryObserverResult, useQuery } from "react-query";
 import { BASE_API, REFETCH_INTERVAL } from "../../utils/constants";
-import {IBlock, IData} from "../../utils/types";
+import { IData } from "../../utils/types";
 
 const useBlocks = (blockNumber: string) => {
   return useQuery<IData, Error>(
     "block",
     async () => {
-      const { data }:{data:IData} = await axios.get(
+      const { data }: { data: IData } = await axios.get(
         `${BASE_API}block/${blockNumber ? blockNumber : "latest"}`
       );
       return data;
@@ -23,9 +23,13 @@ const useBlocks = (blockNumber: string) => {
 export const useBlockTable = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const [fetchedBlock, setFetchedBlock] = useState<string>("");
-  const { isLoading, error, data, refetch, isFetching }: QueryObserverIdleResult<IData, Error> = useBlocks(
-    fetchedBlock
-  );
+  const {
+    isLoading,
+    error,
+    data,
+    refetch,
+    isFetching,
+  }: QueryObserverResult<IData, Error> = useBlocks(fetchedBlock);
 
   useEffect(() => {
     refetch();

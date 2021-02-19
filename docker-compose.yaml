@@ -1,0 +1,12 @@
+version: "3"
+services:
+  server:
+    image: server
+    container_name: server
+    ports:
+      -"9609:9609"
+  ui:
+    image: ui
+    container_name: ui
+    ports:
+    -"80:80"

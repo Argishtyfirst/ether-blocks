@@ -11,7 +11,7 @@ import {
 import { Transactions } from "./Transactions";
 import { Block } from "./Block";
 import { useBlockTable } from "./hooks/useBlockTable";
-import { IResult, ITransaction } from "../utils/types";
+import { IMessage, IResult, ITransaction, IUseBlock } from "../utils/types";
 
 export const BlockTable = () => {
   const {
@@ -23,9 +23,9 @@ export const BlockTable = () => {
     resetToLatest,
     changeBlockNumber,
     refetchWithBlockNumber,
-  } = useBlockTable();
+  }: IUseBlock = useBlockTable();
 
-  if (isLoading) {
+  if (isLoading || !data) {
     return (
       <div className="loader">
         <Spinner animation="border" />
@@ -35,7 +35,7 @@ export const BlockTable = () => {
 
   if (error) return <div>{`An error has occurred: ' ${error.message}`}</div>;
 
-  const { result }: { result: IResult } = data?.message;
+  const { result }: IMessage = data.message;
 
   const transactions: ITransaction[] = result?.transactions || [];
   const blockNumber: string | number = result

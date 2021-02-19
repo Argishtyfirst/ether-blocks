@@ -1,3 +1,5 @@
+import { QueryObserverResult, RefetchOptions } from "react-query";
+
 export interface ITransaction {
   blockHash: string;
   blockNumber: string;
@@ -37,17 +39,32 @@ export interface IResult {
 }
 
 export interface IMessage {
-  id: number,
-  jsonrpc: string,
-  result: IResult
+  id: number;
+  jsonrpc: string;
+  result: IResult;
 }
 export interface IData {
-  message: IMessage
+  message: IMessage;
 }
 export interface IBlock {
-  isLoading:boolean,
-  error:Error,
-  data:IData,
-  refetch:()=>void,
-  isFetching:boolean
+  isLoading: boolean;
+  error: Error;
+  data: IData;
+  refetch: () => (
+    options?: RefetchOptions | undefined
+  ) => Promise<QueryObserverResult<IData, Error>>;
+  isFetching: boolean;
+}
+export interface IUseBlock {
+  inputValue: string;
+  isLoading: boolean;
+  error: null | Error;
+  data: IData | undefined;
+  refetch: (
+    options?: RefetchOptions | undefined
+  ) => Promise<QueryObserverResult<IData, Error>>;
+  isFetching: boolean;
+  resetToLatest: () => void;
+  changeBlockNumber: (ev: any) => void;
+  refetchWithBlockNumber: () => void;
 }
