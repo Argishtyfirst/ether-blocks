@@ -1,4 +1,4 @@
-# Etherium explorer app
+# Ethereum block explorer app
 
 The application is for showing a block of Ethereum using Cloudflare Ethereum API gateway. 
 
