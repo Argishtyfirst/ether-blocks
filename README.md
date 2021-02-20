@@ -15,7 +15,7 @@ I also assume that you have node installed already, if not... meh... 😞
 
 ## Running the application
 
-###Docker
+### Docker
 
 In this case there is not much to do. 
  - Just `clone` the repo
@@ -23,7 +23,7 @@ In this case there is not much to do.
  - run `docker-compose  up`
  - the application will start on `:3000` port
 
-###Run locally
+### Run locally
 
 To run the application without docker.  
   - Just `clone` the repo
