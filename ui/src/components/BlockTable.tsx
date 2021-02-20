@@ -25,13 +25,15 @@ export const BlockTable = () => {
     refetchWithBlockNumber,
   }: IUseBlock = useBlockTable();
 
-  if (isLoading || !data) {
+  if (isLoading) {
     return (
       <div className="loader">
         <Spinner animation="border" />
       </div>
     );
   }
+
+  if (!data) return <div>Unable to fetch data</div>;
 
   if (error) return <div>{`An error has occurred: ' ${error.message}`}</div>;
 

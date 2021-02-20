@@ -5,5 +5,5 @@ cd ./server
 go build app.go
 go run app.go &
 
-cd ../ui && yarn install
+cd ../ui && yarn install --ignore-engines
 yarn start
