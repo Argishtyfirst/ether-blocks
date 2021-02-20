@@ -1,3 +1,4 @@
+import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BlockTable } from "./components/BlockTable";

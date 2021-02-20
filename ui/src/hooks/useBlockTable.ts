@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { QueryObserverResult, useQuery } from "react-query";
-import { BASE_API, REFETCH_INTERVAL } from "../../utils/constants";
-import { IData } from "../../utils/types";
+import { BASE_API, REFETCH_INTERVAL } from "../utils/constants";
+import { IData } from "../utils/types";
 
 const useBlocks = (blockNumber: string) => {
   return useQuery<IData, Error>(
@@ -14,7 +14,6 @@ const useBlocks = (blockNumber: string) => {
       return data;
     },
     {
-      // Refetch the data every second
       refetchInterval: REFETCH_INTERVAL,
     }
   );

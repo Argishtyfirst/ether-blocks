@@ -10,8 +10,8 @@ import {
 } from "react-bootstrap";
 import { Transactions } from "./Transactions";
 import { Block } from "./Block";
-import { useBlockTable } from "./hooks/useBlockTable";
-import { IMessage, IResult, ITransaction, IUseBlock } from "../utils/types";
+import { useBlockTable } from "../hooks/useBlockTable";
+import { IMessage, ITransaction, IUseBlock } from "../utils/types";
 
 export const BlockTable = () => {
   const {

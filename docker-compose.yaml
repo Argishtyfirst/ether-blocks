@@ -1,12 +1,12 @@
 version: "3"
 services:
   server:
-    image: server
+    image: argishtyfirst/server:latest
     container_name: server
     ports:
-      -"9609:9609"
+      - "9609:9609"
   ui:
-    image: ui
+    image: argishtyfirst/ui:latest
     container_name: ui
     ports:
-    -"80:80"
+      - "3000:80"
